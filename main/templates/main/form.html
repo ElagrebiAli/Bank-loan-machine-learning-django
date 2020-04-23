@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+  <div class= "col"></div>
+  <div class = "col-6 my-5">
+    <h4>
+      {% if messages %}
+        {% for message in messages %}
+        <div > 
+          {{ message }} 
+        </div>
+        {% endfor %}
+      {% endif %}
+    </h4>
+</div>
+<div class= "col"></div>
+</div>
+<div class="row">
+  <div class= "col"></div>  
+  <div class = "col-6 my-5">
+    <h1>Loans Form</h1><br>
+    <form method="POST">
+      {% csrf_token %}
+      {{form|crispy}}
+      <br>
+      <button type="submit"> Submit</button>
+    </form>
+  </div>
+  <div class= "col"></div>
+</div>
+{% endblock %}
